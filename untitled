@@ -14,13 +14,15 @@ git clone https://github.com/sambhuRajSingh/DataStructure.git
     },
     "autoload": {
         "psr-4": {
-            "DataSerialisation\\": "app/"
+            "DataStructure\\": "app/"
         }
     }
 }
 </pre>
 
 <p>On terminal run <code>composer install</code></p>
+
+<p>In case, you change psr-4 application name, you will need to run <code>composer dump-autoload -o</code></p>
 
 <p>As you have specified DataSerialisation to be the app folder in the composer file, make
 <code>app</code> folder as well as test folder for unit testing</p>
@@ -37,4 +39,6 @@ test directory created in earlier step</p>
         </testsuite>
     </testsuites>
 </phpunit>
+
+<p class="small">Now, running <code>phpunit</code> on terminal should run all the test inside the test folder</p>
 </p>

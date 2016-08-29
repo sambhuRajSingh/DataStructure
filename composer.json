@@ -5,7 +5,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DataSerialisation\\": "app/"
+            "DataStructure\\": "app/"
         }
     }
 }

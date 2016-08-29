@@ -10,5 +10,5 @@ return array(
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
-    'DataSerialisation\\' => array($baseDir . '/app'),
+    'DataStructure\\' => array($baseDir . '/app'),
 );
