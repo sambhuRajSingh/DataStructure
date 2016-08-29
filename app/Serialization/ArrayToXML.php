@@ -6,6 +6,12 @@ class ArrayToXML
 {
     private $formatted = true;
 
+    /**
+     * To format flag.
+     *
+     * @param  int  $formatted
+     * @return DataStructure\Serialization\ArrayToXML
+     */
     public function isFormatted($formatted)
     {
         $this->formatted = $formatted;
