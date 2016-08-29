@@ -24,7 +24,11 @@ class Serialize
     public function xmlOutput($inputData, $output = "", $depth = 1)
     {
         if (is_string($inputData)) {
-            $output .= $this->tabs($depth - 1).trim($inputData)."\n";
+            if ($this->formatted) {
+                $output .= $this->tabs($depth - 1).trim($inputData)."\n";
+            } else {
+                $output .= trim($inputData);
+            }
         } elseif (is_array($inputData)) {
             $output .= $this->startTag($inputData['name'], $inputData['attr'], $depth);
 
