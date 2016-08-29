@@ -77,9 +77,9 @@ class ArrayToXML
 
         if ($this->formatted) {
             return $this->indent($depth). $startTag ."\n";
-        } else {
-            return $startTag;
         }
+
+        return $startTag;
     }
 
     /**
@@ -114,9 +114,9 @@ class ArrayToXML
 
         if ($this->formatted) {
             return $this->indent($depth). $endTag ."\n";
-        } else {
-            return $endTag;
         }
+
+        return $endTag;
     }
 
     /**
