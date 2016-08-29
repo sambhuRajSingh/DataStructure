@@ -24,3 +24,17 @@ git clone https://github.com/sambhuRajSingh/DataStructure.git
 
 <p>As you have specified DataSerialisation to be the app folder in the composer file, make
 <code>app</code> folder as well as test folder for unit testing</p>
+
+<p>Also create <code>phpunit.xml<code> file. Within it use boilerplate code below and specify
+test directory created in earlier step</p>
+
+<pre class="prettyprint linenums lang-php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>./test/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+</p>
