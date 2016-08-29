@@ -30,11 +30,7 @@ class ArrayToXML
     public function xmlOutput($inputData, $output = "", $depth = 1)
     {
         if (is_string($inputData)) {
-            if ($this->formatted) {
-                $output .= $this->tabs($depth - 1).trim($inputData)."\n";
-            } else {
-                $output .= trim($inputData);
-            }
+            $output .= $this->tagContent($inputData, $depth);
         } elseif (is_array($inputData)) {
             $output .= $this->startTag($inputData['name'], $inputData['attr'], $depth);
 
@@ -46,6 +42,22 @@ class ArrayToXML
         }
 
         return $output;
+    }
+
+    /**
+     * Make a formatted or unformatted content for xml tag
+     *
+     * @param string $content
+     * @param int    $depth
+     * @return string;
+     */
+    private function tagContent($content, $depth)
+    {
+        if ($this->formatted) {
+            return $this->indent($depth).trim($content)."\n";
+        }
+
+        return trim($content);
     }
 
     /**
@@ -64,7 +76,7 @@ class ArrayToXML
                     '>';
 
         if ($this->formatted) {
-            return $this->tabs($depth - 1). $startTag ."\n";
+            return $this->indent($depth). $startTag ."\n";
         } else {
             return $startTag;
         }
@@ -101,7 +113,7 @@ class ArrayToXML
         $endTag = '</'.htmlspecialchars($tagName).'>';
 
         if ($this->formatted) {
-            return $this->tabs($depth - 1). $endTag ."\n";
+            return $this->indent($depth). $endTag ."\n";
         } else {
             return $endTag;
         }
@@ -110,10 +122,10 @@ class ArrayToXML
     /**
      * Return number of tabs.
      *
-     * @param int   $depth
+     * @param  int   $depth
      * @return string
      */
-    public function tabs($depth)
+    private function tabs($depth)
     {
         $tabs = "";
 
@@ -122,5 +134,16 @@ class ArrayToXML
         }
 
         return $tabs;
+    }
+
+    /**
+     * Level of indent.
+     *
+     * @param  int $depth
+     * @return int
+     */
+    private function indent($depth)
+    {
+        return $this->tabs($depth - 1);
     }
 }
