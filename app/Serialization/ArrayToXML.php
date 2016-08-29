@@ -4,6 +4,11 @@ namespace DataStructure\Serialization;
 
 class ArrayToXML
 {
+    /**
+     * Set formatted flag.
+     *
+     * @var boolean
+     */
     private $formatted = true;
 
     /**
@@ -45,11 +50,11 @@ class ArrayToXML
     }
 
     /**
-     * Make a formatted or unformatted content for xml tag
+     * Make a formatted or unformatted content for xml tag.
      *
-     * @param string $content
-     * @param int    $depth
-     * @return string;
+     * @param   string  $content
+     * @param   int     $depth
+     * @return  string;
      */
     private function tagContent($content, $depth)
     {
@@ -61,7 +66,7 @@ class ArrayToXML
     }
 
     /**
-     * Formatted or unformatted opening xml tag
+     * Formatted or unformatted opening xml tag.
      *
      * @param   string    $tagName
      * @param   array     $tagAttribute
@@ -85,8 +90,8 @@ class ArrayToXML
     /**
      * Make a tag attribute string.
      *
-     * @param array $attributes
-     * @return string
+     * @param   array   $attributes
+     * @return  string
      */
     private function tagAttributes($attritubes)
     {
@@ -102,11 +107,11 @@ class ArrayToXML
     }
 
     /**
-     * Formatted or unformatted closing xml tag
+     * Formatted or unformatted closing xml tag.
      *
-     * @param string    $tagName
-     * @param int       $depth
-     * @return string
+     * @param   string    $tagName
+     * @param   int       $depth
+     * @return  string
      */
     private function endTag($tagName, $depth)
     {

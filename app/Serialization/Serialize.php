@@ -7,6 +7,8 @@ use DataStructure\Serialization\ArrayToXML;
 class Serialize
 {
     /**
+     * The input data to be parsed.
+     *
      * @var array
      */
     private $inputData;
@@ -23,7 +25,7 @@ class Serialize
     }
 
     /**
-     * Serialize into the xml output.
+     * Serialize into the xml.
      *
      * @param   boolean  $formatted
      * @return  string
