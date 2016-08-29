@@ -13,6 +13,14 @@ class Serialize
         $this->inputData = $inputData;
     }
 
+    /**
+     * Parse array into the xml data.
+     *
+     * @param  array    $inputData
+     * @param  string   $output
+     * @param  int      $depth
+     * @return string
+     */
     public function xmlOutput($inputData, $output = "", $depth = 1)
     {
         if (is_string($inputData)) {

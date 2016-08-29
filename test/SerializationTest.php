@@ -71,7 +71,7 @@ class SerializationTest extends PHPUnit_Framework_TestCase
 
     public function testInputDataGenerateXML()
     {
-        $actualXML = $this->serialize->intoXML(false);
+        $actualXML = $this->serialize->intoXML(true);
 
         $this->assertEquals(
             $this->expectedXML,
