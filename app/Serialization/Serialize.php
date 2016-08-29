@@ -4,20 +4,20 @@ namespace DataStructure\Serialization;
 
 class Serialize
 {
-    protected $inputData;
+    private $inputData;
 
     public function __construct($inputData)
     {
         $this->inputData = $inputData;
     }
 
-    public function xmlOutput()
+    public function xmlOutput($inputData, $output = "", $depth = 1)
     {
-        return "";
+        return $this->inputData;
     }
 
-    public function intoXML()
+    public function intoXML($formatted = true)
     {
-        return $this->xmlOutput();
+        return $this->xmlOutput($this->inputData);
     }
 }
