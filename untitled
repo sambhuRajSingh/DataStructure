@@ -1,0 +1,26 @@
+<p>Create a git project and clone it into local</p>
+
+<pre class="prettyprint linenums lang-php">
+git clone https://github.com/sambhuRajSingh/DataStructure.git
+</pre>
+
+<p>Create Composer.json File with phpunit as its dependencies to be installed</p>
+
+<pre class="prettyprint linenums lang-php">
+{
+    "name": "Project/DataStructure",
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DataSerialisation\\": "app/"
+        }
+    }
+}
+</pre>
+
+<p>On terminal run <code>composer install</code></p>
+
+<p>As you have specified DataSerialisation to be the app folder in the composer file, make
+<code>app</code> folder as well as test folder for unit testing</p>
