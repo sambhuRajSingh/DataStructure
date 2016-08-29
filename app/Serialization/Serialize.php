@@ -24,9 +24,13 @@ class Serialize
     public function xmlOutput($inputData, $output = "", $depth = 1)
     {
         if (is_string($inputData)) {
-
+            $output .= $this->tabs($depth - 1).trim($inputData)."\n";
         } elseif (is_array($inputData)) {
-            $output .= $this->startTag($inputData['name'], $depth);
+            $output .= $this->startTag($inputData['name'], $inputData['attr'], $depth);
+
+            foreach ($inputData['children'] as $children) {
+                $output = $this->xmlOutput($children, $output, $depth + 1);
+            }
 
             $output .= $this->endTag($inputData['name'], $depth);
         }
@@ -37,19 +41,42 @@ class Serialize
     /**
      * Formatted or unformatted opening xml tag
      *
-     * @param string    $tagName
-     * @param int       $depth
-     * @return string
+     * @param   string    $tagName
+     * @param   array     $tagAttribute
+     * @param   int       $depth
+     * @return  string
      */
-    private function startTag($tagName, $depth)
+    private function startTag($tagName, $tagAttributes, $depth)
     {
-        $startTag = '<'.htmlspecialchars($tagName).'>';
+        $startTag = '<'.
+                        htmlspecialchars($tagName).
+                        $this->tagAttributes($tagAttributes).
+                    '>';
 
         if ($this->formatted) {
             return $this->tabs($depth - 1). $startTag ."\n";
         } else {
             return $startTag;
         }
+    }
+
+    /**
+     * Make a tag attribute string.
+     *
+     * @param array $attributes
+     * @return string
+     */
+    private function tagAttributes($attritubes)
+    {
+        $string = "";
+
+        if (count($attritubes) > 0) {
+            foreach ($attritubes as $key => $attribute) {
+                $string .= ' ' . $key . '="' . $attribute . '"';
+            }
+        }
+
+        return $string;
     }
 
     /**
