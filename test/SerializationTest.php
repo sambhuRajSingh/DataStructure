@@ -9,7 +9,7 @@ class SerializationTest extends PHPUnit_Framework_TestCase
 {
     private $serialize;
 
-    private $inputData = array (
+    private $inputData = array(
         'name' => 'account',
         'attr' =>
             array(
@@ -78,5 +78,4 @@ class SerializationTest extends PHPUnit_Framework_TestCase
             $actualXML
         );
     }
-
 }

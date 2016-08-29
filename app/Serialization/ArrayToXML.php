@@ -129,7 +129,7 @@ class ArrayToXML
     {
         $tabs = "";
 
-        for($x = 1; $x <= $depth; $x++) {
+        for ($x = 1; $x <= $depth; $x++) {
             $tabs .= "\t";
         }
 
