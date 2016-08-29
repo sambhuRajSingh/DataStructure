@@ -11,6 +11,7 @@
        ii) php index.php on the termial
 
 
+
 2. Explain how you would extend your code to optionally convert the data structure to json instead (no
 need to actually write the code if you don’t have time).
 
@@ -24,6 +25,7 @@ need to actually write the code if you don’t have time).
 
     d) During the runtime call the interface and the method.
 
+
 3. What additional work might you do in order to make your code production­ ready?
 
     Assuming the input data is comming from the making an api request. I would:
@@ -32,6 +34,6 @@ need to actually write the code if you don’t have time).
 
     b) While parsing the input data, additional validation need to be done.
 
-    c) Error Handling and Error Reporting. Excepting class do deal with any error and gracefully handle the error.
+    c) Error Handling and Error Reporting. Excepting class do deal with any error and gracefully handle any errors.
 
-    d) Conside using PHP DOMDocument class for creating XML as it is tried and tested approach.
+    d) Conside using PHP DOMDocument class for creating and parsing XML, as it is tried and tested approach.
