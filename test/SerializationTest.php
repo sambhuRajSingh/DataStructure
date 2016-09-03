@@ -4,6 +4,7 @@ namespace test;
 
 use PHPUnit_Framework_TestCase;
 use DataStructure\Serialization\Serialize;
+use DataStructure\Serialization\ArrayToXML;
 
 class SerializationTest extends PHPUnit_Framework_TestCase
 {
@@ -71,7 +72,9 @@ class SerializationTest extends PHPUnit_Framework_TestCase
 
     public function testInputDataGenerateXML()
     {
-        $actualXML = $this->serialize->intoXML(false);
+        $actualXML = $this->serialize->output(
+            (new ArrayToXML)->isFormatted(false)
+        );
 
         $this->assertEquals(
             $this->expectedXML,

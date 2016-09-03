@@ -2,7 +2,9 @@
 
 namespace DataStructure\Serialization;
 
-class ArrayToXML extends Xml
+use DataStructure\Serialization\Contracts\Parsable;
+
+class ArrayToXML extends Xml implements Parsable
 {
     /**
      * Parse array into the xml data.
@@ -10,9 +12,9 @@ class ArrayToXML extends Xml
      * @param  array    $inputData
      * @param  string   $output
      * @param  int      $depth
-     * @return string
+     * @return xml|Json
      */
-    public function xmlOutput($inputData, $output = "", $depth = 1)
+    public function parse($inputData, $output = "", $depth = 1)
     {
         if (is_string($inputData)) {
             $output .= $this->tagContent($inputData, $depth);
@@ -20,7 +22,7 @@ class ArrayToXML extends Xml
             $output .= $this->startTag($inputData['name'], $inputData['attr'], $depth);
 
             foreach ($inputData['children'] as $children) {
-                $output = $this->xmlOutput($children, $output, $depth + 1);
+                $output = $this->parse($children, $output, $depth + 1);
             }
 
             $output .= $this->endTag($inputData['name'], $depth);

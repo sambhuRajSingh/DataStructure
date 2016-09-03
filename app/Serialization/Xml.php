@@ -25,16 +25,6 @@ abstract class Xml
     }
 
     /**
-     * Parse array into the xml data.
-     *
-     * @param  array    $inputData
-     * @param  string   $output
-     * @param  int      $depth
-     * @return string
-     */
-    abstract public function xmlOutput($inputData, $output = "", $depth = 1);
-
-    /**
      * Make a formatted or unformatted content for xml tag.
      *
      * @param   string  $content

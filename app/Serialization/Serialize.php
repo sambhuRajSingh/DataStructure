@@ -3,8 +3,10 @@
 namespace DataStructure\Serialization;
 
 use DataStructure\Serialization\ArrayToXML;
+use DataStructure\Serialization\Contracts\Parsable;
+use DataStructure\Serialization\Contracts\Serializable;
 
-class Serialize
+class Serialize implements Serializable
 {
     /**
      * The input data to be parsed.
@@ -25,16 +27,13 @@ class Serialize
     }
 
     /**
-     * Serialize into the xml.
+     * Serialize input into the Parsable output
      *
      * @param   boolean  $formatted
      * @return  string
      */
-    public function intoXML($formatted = true)
+    public function output(Parsable $parsable)
     {
-        $arrayToXML = new ArrayToXML();
-
-        return $arrayToXML->isFormatted($formatted)
-                   ->xmlOutput($this->inputData);
+        return $parsable->parse($this->inputData);
     }
 }
